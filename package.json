@@ -1,0 +1,25 @@
+{
+  "name": "-nodejs",
+  "version": "1.0.0",
+  "description": "Udemy practice files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lsolanodevop/-nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lsolanodevop/-nodejs/issues"
+  },
+  "homepage": "https://github.com/lsolanodevop/-nodejs#readme",
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "nodemon": "^2.0.7",
+    "validator": "^13.6.0",
+    "yargs": "^17.0.1"
+  }
+}
