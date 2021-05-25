@@ -3,8 +3,8 @@ const chalk = require("chalk");
 const { Console } = require("console");
 const { randomInt } = require("crypto");
 const fs = require("fs");
-
-const getNotes = function()
+//Para usar arrow syntax tienes que quitar el function y la flecha va luego de los ()
+const getNotes = () =>
 {
     return "Your Notes...";
 }
@@ -12,10 +12,7 @@ const getNotes = function()
 const addNote = function(title,body)
 {
     const notes = loadNotes();
-    const duplicateNotes = notes.filter(function (note) 
-    {
-        return note.title === title;
-    });
+    const duplicateNotes = notes.filter((note) => note.title === title);
 
     if(duplicateNotes.length === 0)
     {
@@ -56,10 +53,7 @@ const loadNotes = function()
 const removeNotes = function(title)
 {
     const notes = loadNotes();
-    const notesToKeep = notes.filter(function (note) 
-    {
-       return note.title !== title;
-    });
+    const notesToKeep = notes.filter((note) => note.title !== title);
     console.log(notesToKeep.length);
     console.log(notes.length);
     const comp = notesToKeep.length != notes.length;
