@@ -69,7 +69,7 @@ yargs.command({
     describe: "list your notes",
     handler()
     {
-        console.log("Listing the notes");
+        notes.listNotes();
     }
 });
 //add, remove, read, list

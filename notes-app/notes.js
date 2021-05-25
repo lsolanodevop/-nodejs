@@ -69,11 +69,22 @@ const removeNotes = function(title)
     
 }
 
+const listNotes = () =>
+{    
+    const _listedNotes = loadNotes();
+    _listedNotes.forEach(_note => {
+        console.log(chalk.blue("Your Notes Title: " + _note.title));
+        console.log(chalk.red("Description: " + _note.body));
+        console.log("");
+    });
+    // console.log("Your Notes: " + _listedNotes[0].title);
+}
 module.exports = 
 {
     getNotes: getNotes,
     addNote: addNote,
-    removeNotes : removeNotes
+    removeNotes : removeNotes,
+    listNotes : listNotes
 };
 
 // const names = "Leonardo";
