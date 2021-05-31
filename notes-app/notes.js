@@ -4,17 +4,14 @@ const { Console } = require("console");
 const { randomInt } = require("crypto");
 const fs = require("fs");
 //Para usar arrow syntax tienes que quitar el function y la flecha va luego de los ()
-const getNotes = () =>
-{
-    return "Your Notes...";
-}
+
 
 const addNote = function(title,body)
 {
     const notes = loadNotes();
-    const duplicateNotes = notes.filter((note) => note.title === title);
-
-    if(duplicateNotes.length === 0)
+    const duplicateNote = notes.find((note) => note.title === title)
+    
+    if(duplicateNote  === undefined)
     {
         notes.push(
             {
@@ -54,8 +51,6 @@ const removeNotes = function(title)
 {
     const notes = loadNotes();
     const notesToKeep = notes.filter((note) => note.title !== title);
-    console.log(notesToKeep.length);
-    console.log(notes.length);
     const comp = notesToKeep.length != notes.length;
     if(comp)
     {
@@ -72,19 +67,50 @@ const removeNotes = function(title)
 const listNotes = () =>
 {    
     const _listedNotes = loadNotes();
+    
     _listedNotes.forEach(_note => {
         console.log(chalk.blue("Your Notes Title: " + _note.title));
         console.log(chalk.red("Description: " + _note.body));
         console.log("");
+        
     });
+    
     // console.log("Your Notes: " + _listedNotes[0].title);
+}
+
+const readNote = function(title)
+{
+    try{
+    const notes = loadNotes();
+    const noteRead = notes.find((note) => note.title === title)
+    {
+        if(noteRead === undefined){
+          console.log(chalk.red("There's no match for this title"));  
+        }else
+        {
+            if(title === noteRead.title)
+        {
+            console.log("note finded: ");
+            console.log("");
+            console.log(chalk.blue(noteRead.title));
+            console.log("");
+            console.log(noteRead.body);
+        }
+        }
+    }
+}
+    catch(e)
+    {
+        console.log(e);
+    }
+    
 }
 module.exports = 
 {
-    getNotes: getNotes,
     addNote: addNote,
     removeNotes : removeNotes,
-    listNotes : listNotes
+    listNotes : listNotes,
+    readNote : readNote
 };
 
 // const names = "Leonardo";
