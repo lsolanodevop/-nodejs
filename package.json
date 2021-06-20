@@ -20,6 +20,7 @@
     "chalk": "^4.1.1",
     "nodemon": "^2.0.7",
     "postman-request": "*",
+    "prompt-sync": "^4.2.0",
     "validator": "^13.6.0",
     "yargs": "^17.0.1"
   }
